@@ -1,3 +1,8 @@
+package lms;
+
+import lms.Lesson;
+import lms.Person;
+
 import java.util.List;
 
 public class Group {
@@ -46,13 +51,6 @@ public class Group {
         this.students = students;
     }
 
-    @Override
-    public String toString() {
-        return "Group{" +
-                "id=" + id +
-                ", groupName='" + groupName + '\'' +
-                ", lessons=" + lessons +
-                ", students=" + students +
-                '}';
-    }
+
+
 }

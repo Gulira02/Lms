@@ -1,5 +1,7 @@
+package enams;
+
 public enum Gender {
-    MAIL,
-    FIMALE
+    MALE,
+    FEMALE;
 
 }
