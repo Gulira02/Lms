@@ -10,8 +10,7 @@ public class PersonServiceImp  implements PersonService {
     private List <Person> PrsSrcImp;{
     }
 
-    public <E> PersonServiceImp(List<E> person) {
-    }
+
 
 
     @Override
