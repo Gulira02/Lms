@@ -60,34 +60,52 @@ public class Main {
                                     switch (com){
                                         case 1:
                                             System.out.println(groupService.addNewGroup());
+                                            break;
                                         case 2:
                                             System.out.println(groupService.getGroupByName());
+                                            break;
                                         case 3:
                                             System.out.println(groupService.updateGroupName());
+                                            break;
                                         case 4:
                                             System.out.println(groupService.getAllGroups());
+                                            break;
                                         case 5:
                                             System.out.println(groupService.addNewStudentToGroup());
+                                            break;
                                         case 6:
                                             System.out.println(groupService.updateStudent());
+                                            break;
                                         case 7:
                                             groupService.findStudentByFirstName();
+                                            break;
                                         case 8:
                                             System.out.println(groupService.getAllStudentsByGroupName());
+                                            break;
                                         case 9:
                                             System.out.println(groupService.getAllStudentsLesson());
+                                            break;
                                         case 10:
                                             groupService.deleteStudent();
+                                            break;
                                         case 11:
                                             System.out.println(groupService.addNewLessonToGroup());
+                                            break;
                                         case 12:
                                             System.out.println(groupService.getLessonByName());
+                                            break;
                                         case 13:
                                             System.out.println(groupService.getAllLessonByGroupName());
+                                            break;
                                         case 14:
                                             groupService.deleteLesson();
+                                            break;
                                         case 15:
                                             groupService.deleteGroup();
+                                            break;
+                                        default:
+                                            System.out.println("Мындай метод жок");
+
                                     }
                                 }
                             }
@@ -118,34 +136,50 @@ public class Main {
                                 switch (com){
                                     case 1:
                                         System.out.println(groupService.addNewGroup());
+                                        break;
                                     case 2:
                                         System.out.println(groupService.getGroupByName());
+                                        break;
                                     case 3:
                                         System.out.println(groupService.updateGroupName());
+                                        break;
                                     case 4:
                                         System.out.println(groupService.getAllGroups());
+                                        break;
                                     case 5:
                                         System.out.println(groupService.addNewStudentToGroup());
+                                        break;
                                     case 6:
                                         System.out.println(groupService.updateStudent());
+                                        break;
                                     case 7:
                                         groupService.findStudentByFirstName();
+                                        break;
                                     case 8:
                                         System.out.println(groupService.getAllStudentsByGroupName());
+                                        break;
                                     case 9:
                                         System.out.println(groupService.getAllStudentsLesson());
+                                        break;
                                     case 10:
                                         groupService.deleteStudent();
+                                        break;
                                     case 11:
                                         System.out.println(groupService.addNewLessonToGroup());
+                                        break;
                                     case 12:
                                         System.out.println(groupService.getLessonByName());
+                                        break;
                                     case 13:
                                         System.out.println(groupService.getAllLessonByGroupName());
+                                        break;
                                     case 14:
                                         groupService.deleteLesson();
+                                        break;
                                     case 15:
                                         groupService.deleteGroup();
+                                        break;
+
                                 }
                             }
                         }

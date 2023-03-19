@@ -53,20 +53,20 @@ public class GroupServiceImp implements GroupService {
 
 
     @Override
-    public Group updateGroupName() {
+    public String updateGroupName() {
         System.out.println("Write name: ");
         String name = new Scanner(System.in).nextLine();
-        Group group1 = new Group();
+
         for (Group group : groups) {
             if (group.getGroupName().equals(name)) {
                 group.setGroupName(name);
-                group1 = group;
+               return  group.getGroupName();
             } else {
                 System.out.println("Myndai gruppa jok");
             }
 
         }
-        return group1;
+        return null;
     }
 
     @Override
