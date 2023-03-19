@@ -1,4 +1,4 @@
-package interfacePackage;
+package service;
 
 import lms.Group;
 import lms.Lesson;
@@ -6,7 +6,7 @@ import lms.Person;
 
 import java.util.List;
 
-public interface groupAble {
+public interface GroupService {
     String addNewGroup();    // 1 Добавить новую группу
 
     Group getGroupByName();   // 2 Получить группу по названию
@@ -31,7 +31,7 @@ public interface groupAble {
 
    Lesson getLessonByName(); // 12 Получить урок по названию
 
-    List <Lesson>getAllLessonByGroupName(); //13 Получить весь урок по названию группы
+    List<Lesson> getAllLessonByGroupName(); //13 Получить весь урок по названию группы
 
      void deleteLesson(); // 14 Удалить урок
 
