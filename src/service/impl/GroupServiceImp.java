@@ -231,10 +231,10 @@ public class GroupServiceImp implements GroupService {
             for (Group group1 : groups) {
                 if (group1.getGroupName().equals(name)) {
                     lessonList=group1.getLessons();
-                    return group1.getLessons();
+
                 }
-                else {throw new MyException("Бул группада мындай студенттер жок");}
-            }}
+                throw new MyException("Бул группада мындай студенттер жок");}
+            }
         catch (MyException e){
             System.out.println(e.getMessage());
         }
