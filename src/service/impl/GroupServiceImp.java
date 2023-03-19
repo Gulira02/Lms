@@ -10,9 +10,9 @@ import service.GroupService;
 import java.util.*;
 
 public class GroupServiceImp implements GroupService {
-    private List<Group>groups;
-    private List<Lesson> lessons;
-    private List<Person> people;
+    private List<Group>groups=new ArrayList<>();
+    private List<Lesson> lessons=new ArrayList<>();
+    private List<Person> people=new ArrayList<>();
 
 
     @Override
