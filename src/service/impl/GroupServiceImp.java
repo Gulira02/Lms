@@ -223,15 +223,15 @@ public class GroupServiceImp implements GroupService {
 
     @Override
     public List<Lesson> getAllLessonByGroupName() {
-        Group group=new Group();
+
         List <Lesson>lessonList=new ArrayList<>();
         try{
             System.out.println("Write  name: ");
             String name=new Scanner(System.in).nextLine();
             for (Group group1 : groups) {
-                if (group.getGroupName().equals(name)) {
-                    lessonList=group.getLessons();
-                    return group.getLessons();
+                if (group1.getGroupName().equals(name)) {
+                    lessonList=group1.getLessons();
+                    return group1.getLessons();
                 }
                 else {throw new MyException("Бул группада мындай студенттер жок");}
             }}

@@ -26,6 +26,7 @@ public class Main {
         public static void myMethod() {
         Person person=new Person(1,"Gulira","Murzakulova","gulira@gmail.com","gulira123", Gender.FEMALE);
             GroupServiceImp groupService=new GroupServiceImp();
+
             PersonServiceImp personService=new PersonServiceImp(List.of(person));
 
             while (true){
