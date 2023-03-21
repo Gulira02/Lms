@@ -27,6 +27,11 @@ public class Group {
 
     public Group(){}
 
+    public Group(int id, String groupName, String description) {
+        this.id = id;
+        this.groupName = groupName;
+        this.description = description;
+    }
 
     public int getId() {
         return id;

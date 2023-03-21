@@ -1,5 +1,6 @@
 import enams.Gender;
 import exseptions.MyException;
+import lms.Group;
 import lms.Person;
 import service.impl.GroupServiceImp;
 import service.impl.PersonServiceImp;
@@ -24,7 +25,7 @@ public class Main {
 
         myMethod();}
         public static void myMethod() {
-        Person person=new Person(1,"Gulira","Murzakulova","gulira@gmail.com","gulira123", Gender.FEMALE);
+        Person person=new Person(1,"Gul","Murzakulova","g@gmail.com","12345678", Gender.FEMALE);
             GroupServiceImp groupService=new GroupServiceImp();
 
             PersonServiceImp personService=new PersonServiceImp(List.of(person));
@@ -57,6 +58,7 @@ public class Main {
                                             "             14 -> Delete lesson\n" +
                                             "             15 -> Delete group");
                                     int com=new Scanner(System.in).nextInt();
+                                    Group group=new Group();
                                     switch (com){
                                         case 1:
                                             System.out.println(groupService.addNewGroup());
@@ -65,7 +67,15 @@ public class Main {
                                             System.out.println(groupService.getGroupByName());
                                             break;
                                         case 3:
-                                            System.out.println(groupService.updateGroupName());
+                                            System.out.println("write id group");
+                                            int id = new Scanner( System.in).nextInt();
+                                            System.out.println("write name group");
+                                            String  name = new Scanner( System.in).nextLine();
+                                            System.out.println("write description " +
+                                                    "group");
+                                            String des = new Scanner( System.in).nextLine();
+                                            System.out.println(groupService.updateGroupName(
+                                                    new Group(id,name,des)));
                                             break;
                                         case 4:
                                             System.out.println(groupService.getAllGroups());
@@ -132,6 +142,7 @@ public class Main {
                                                 "             13 -> Get all lesson by group name\n" +
                                                 "             14 -> Delete lesson\n" +
                                                 "             15 -> Delete group");
+                                Group group=new Group();
                                 int com=new Scanner(System.in).nextInt();
                                 switch (com){
                                     case 1:
@@ -141,7 +152,14 @@ public class Main {
                                         System.out.println(groupService.getGroupByName());
                                         break;
                                     case 3:
-                                        System.out.println(groupService.updateGroupName());
+                                        System.out.println("write id group");
+                                        int id = new Scanner( System.in).nextInt();
+                                        System.out.println("write name group");
+                                        String  name = new Scanner( System.in).nextLine();
+                                        System.out.println("write description " +
+                                                "group");
+                                        String des = new Scanner( System.in).nextLine();
+                                        System.out.println(groupService.updateGroupName(new Group(id,name,des)));
                                         break;
                                     case 4:
                                         System.out.println(groupService.getAllGroups());

@@ -50,24 +50,53 @@ public class GroupServiceImp implements GroupService {
 
 
 
-
-
     @Override
-    public String updateGroupName() {
+    public Group updateGroupName(Group group) {
         System.out.println("Write name: ");
         String name = new Scanner(System.in).nextLine();
+        for (Group group1 : groups) {
+            if (group1.getGroupName().equals(name)){
+                group1.setId(group.getId());
+                group1.setGroupName(group.getGroupName());
+                group1.setDescription(group.getDescription());
+            }
+        }
+        return group;
 
-        for (Group group : groups) {
-            if (group.getGroupName().equals(name)) {
+    }
+
+
+/*    public Group updateGroupName(Group group) {
+        System.out.println("Write name: ");
+        String name = new Scanner(System.in).nextLine();
+        for (Group group1 : groups) {
+            if (group1.getGroupName().equals(name)){
+                group1.setId(group.getId());
+                group1.setGroupName(group.getGroupName());
+                group1.setDescription(group.getDescription());
+            }
+        }
+        return group;
+    }*/
+
+/*    @Override
+    public Group updateGroupName() {
+        System.out.println("Write name: ");
+        String name = new Scanner(System.in).nextLine();
+        Group group =new Group();
+
+        for (Group g : groups) {
+            if (g.getGroupName().toUpperCase().equals(name.toUpperCase())) {
                 group.setGroupName(name);
-               return  group.getGroupName();
+                group=g;
+             //  return  group.getGroupName();
             } else {
                 System.out.println("Myndai gruppa jok");
             }
 
         }
         return null;
-    }
+    }*/
 
     @Override
     public List<Group> getAllGroups() {
@@ -76,30 +105,36 @@ public class GroupServiceImp implements GroupService {
 
     @Override
     public String addNewStudentToGroup() {
-        try{
-        System.out.println("ID номерин жазыныз: ");
-        int id = new Scanner(System.in).nextInt();
-        System.out.println("Атын жазыныз: ");
-        String studName = new Scanner(System.in).nextLine();
-        System.out.println("Фамилиясын жазыныз: ");
-        String fullName = new Scanner(System.in).nextLine();
-        System.out.println("email почтасын жазыныз: ");
-        String email = new Scanner(System.in).nextLine();
-        System.out.println("Студентке парол бериниз");
-       String password=new Scanner(System.in).nextLine();
-        System.out.println("Студенттин полун жазыныз");
-        String gender=new Scanner(System.in).nextLine();
-        Person person=new Person(id,studName,fullName,email,password,Gender.valueOf(gender));
-        for (Group group1 : groups) {
-            group1.setGroupName(Collections.singletonList(person).toString());
+            System.out.println("ID номерин жазыныз: ");
+            int id = new Scanner(System.in).nextInt();
+            System.out.println("Атын жазыныз: ");
+            String studName = new Scanner(System.in).nextLine();
+            System.out.println("Фамилиясын жазыныз: ");
+            String fullName = new Scanner(System.in).nextLine();
+            System.out.println("email почтасын жазыныз: ");
+            String email = new Scanner(System.in).nextLine();
+            System.out.println("Студентке парол бериниз");
+            String password = new Scanner(System.in).nextLine();
+            System.out.println("Студенттин полун жазыныз");
+            String gender = new Scanner(System.in).nextLine();
+            Person person = new Person(id, studName, fullName, email, password, Gender.valueOf(gender.toUpperCase()));
+            people.add(person);
+            System.out.println("Grupanyn atyn jaz");
+            String grupName = new Scanner(System.in).nextLine();
+            for (Group group1 : groups) {
+                if (group1.getGroupName().equals(grupName)) {
+                    group1.setStudents((people));
+                } else {
+                    System.out.println("Myndai gr jok");
+                }
+            }
+            return "Группага жаны студент кошулду";
         }
-        throw  new MyException("Туура эмес мааымат киргиздиниз");
-        }
-        catch (MyException e){
-            System.out.println(e.getMessage());
-        }
-        return "Группага жаны студент кошулду";
-    }
+
+
+
+
+
 
     @Override
     public Person updateStudent() {
@@ -146,11 +181,23 @@ public class GroupServiceImp implements GroupService {
 
     @Override
     public String getAllStudentsByGroupName() {
-
+        //gruppanyn aty menen studentterdin spisogun al
+     /*public List<Student> getAllStudentsByGroupName(String groupName) {
+    List<Student> students = new ArrayList<>();
+    for (Group group : groups) { // assuming 'groups' is a list of Group objects
+        if (group.getName().equals(groupName)) {
+            students.addAll(group.getStudents());
+        }
+    }
+    return students;*/
+        List <Person>students=new ArrayList<>();
        try{ Group group=new Group();
+
+           System.out.println("Gruppanyn atyn jaz ");
+           String groupName=new Scanner(System.in).nextLine();
         for (Group group1 : groups) {
-            if (group.getGroupName().equals(group.getStudents())) {
-                return group.getStudents().toString();
+            if (group.getGroupName().equals(groupName)){
+                students.addAll(group1.getStudents());
             }
             else {throw new MyException("Бул группада мындай студенттер жок");}
         }}
@@ -158,7 +205,7 @@ public class GroupServiceImp implements GroupService {
            System.out.println(e.getMessage());
        }
 
-        return "Группада бул студенттер бар";
+        return students.toString();
     }
 
     @Override
@@ -259,12 +306,15 @@ public class GroupServiceImp implements GroupService {
     @Override
     public void deleteGroup() {
         try{
-        System.out.println("Write ID");
-        int id = new Scanner(System.in).nextInt();
+            System.out.println("Gruppanyn atyn jazynyz");
+            String groupName = new Scanner(System.in).nextLine();
+           System.out.println("Write ID");
+           int id = new Scanner(System.in).nextInt();
         for (Group group : groups) {
             if (group.getId() == (id)) {
+               // groups.remove(groupName);
                 groups.remove(group);
-                System.out.println("Ochtu");
+                System.out.println(group +" Ochtu");
             }
             else{
             throw new MyException("Mындай группа табылган жок");

@@ -11,7 +11,7 @@ public interface GroupService {
 
     Group getGroupByName();   // 2 Получить группу по названию
 
-    String updateGroupName(); //3 Обновить название группы
+    Group updateGroupName(Group group); //3 Обновить название группы
 
     List<Group> getAllGroups();      //4 Получить все группы
 
