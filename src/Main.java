@@ -4,7 +4,10 @@ import lms.Group;
 import lms.Person;
 import service.impl.GroupServiceImp;
 import service.impl.PersonServiceImp;
+
+import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.chrono.ChronoLocalDate;
 import java.util.List;
 import java.util.Scanner;
 
@@ -22,6 +25,7 @@ public class Main {
             String []now=localTime.toString().split(":");
             System.out.println("  Kutman kech!  Saat-->"+now[0]+":"+now[1]);
         }
+
 
         myMethod();}
         public static void myMethod() {
@@ -67,15 +71,8 @@ public class Main {
                                             System.out.println(groupService.getGroupByName());
                                             break;
                                         case 3:
-                                            System.out.println("write id group");
-                                            int id = new Scanner( System.in).nextInt();
-                                            System.out.println("write name group");
-                                            String  name = new Scanner( System.in).nextLine();
-                                            System.out.println("write description " +
-                                                    "group");
-                                            String des = new Scanner( System.in).nextLine();
-                                            System.out.println(groupService.updateGroupName(
-                                                    new Group(id,name,des)));
+
+                                            System.out.println(groupService.updateGroupName());
                                             break;
                                         case 4:
                                             System.out.println(groupService.getAllGroups());
@@ -87,7 +84,7 @@ public class Main {
                                             System.out.println(groupService.updateStudent());
                                             break;
                                         case 7:
-                                            groupService.findStudentByFirstName();
+                                            System.out.println(groupService.findStudentByFirstName());
                                             break;
                                         case 8:
                                             System.out.println(groupService.getAllStudentsByGroupName());
@@ -152,14 +149,8 @@ public class Main {
                                         System.out.println(groupService.getGroupByName());
                                         break;
                                     case 3:
-                                        System.out.println("write id group");
-                                        int id = new Scanner( System.in).nextInt();
-                                        System.out.println("write name group");
-                                        String  name = new Scanner( System.in).nextLine();
-                                        System.out.println("write description " +
-                                                "group");
-                                        String des = new Scanner( System.in).nextLine();
-                                        System.out.println(groupService.updateGroupName(new Group(id,name,des)));
+
+                                        System.out.println(groupService.updateGroupName());
                                         break;
                                     case 4:
                                         System.out.println(groupService.getAllGroups());
@@ -171,7 +162,7 @@ public class Main {
                                         System.out.println(groupService.updateStudent());
                                         break;
                                     case 7:
-                                        groupService.findStudentByFirstName();
+                                        System.out.println(groupService.findStudentByFirstName());
                                         break;
                                     case 8:
                                         System.out.println(groupService.getAllStudentsByGroupName());

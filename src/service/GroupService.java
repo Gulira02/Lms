@@ -11,7 +11,7 @@ public interface GroupService {
 
     Group getGroupByName();   // 2 Получить группу по названию
 
-    Group updateGroupName(Group group); //3 Обновить название группы
+    Object updateGroupName(); //3 Обновить название группы
 
     List<Group> getAllGroups();      //4 Получить все группы
 
@@ -19,9 +19,9 @@ public interface GroupService {
 
     Person updateStudent();    //6 Обновить студента
 
-    void findStudentByFirstName();    //7 Найти студента по имени
+    Person findStudentByFirstName();    //7 Найти студента по имени
 
-    String getAllStudentsByGroupName();    //8 Получить всех студентов по названию группы
+    List<Person> getAllStudentsByGroupName();    //8 Получить всех студентов по названию группы
 
     List<Lesson> getAllStudentsLesson();    // 9 Получите весь урок ученика
 
@@ -29,7 +29,7 @@ public interface GroupService {
 
      String addNewLessonToGroup(); // 11 Добавить новый урок в группу
 
-   Lesson getLessonByName(); // 12 Получить урок по названию
+   List<Lesson> getLessonByName(); // 12 Получить урок по названию
 
     List<Lesson> getAllLessonByGroupName(); //13 Получить весь урок по названию группы
 

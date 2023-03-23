@@ -2,6 +2,7 @@ package lms;
 
 import enams.Gender;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Group {
@@ -9,7 +10,7 @@ public class Group {
     private String groupName;
     private String description;
     private List<Lesson> lessons;
-    private List<Person> students;
+    private List<Person>students;
 
     public Group(int id, String groupName, String description, List<Lesson> lessons, List<Person> students) {
         this.id = id;
@@ -73,6 +74,27 @@ public class Group {
         this.description = description;
     }
 
+    public void addStudents(Person people){
+        students=new ArrayList<>();
+        students.add(people);
+    }
+
+
+
+
+
+
+
+    public void deleteGroup(ArrayList<Group> group){
+        group=new ArrayList<Group>();
+       group.remove(group);
+    }
+
+    public void deleteStudents(String student){
+        students=new ArrayList<>();
+        students.remove(student);
+    }
+
     @Override
     public String toString() {
         return "Group{" +
@@ -85,7 +107,7 @@ public class Group {
     }
 
 
-
-
-
+    public void add(Lesson lesson) {
+             lessons.add(lesson);
+    }
 }
